@@ -11,30 +11,22 @@
       $this -> name = $_name;
       $this -> filmProductionCompany = $_company;
     }
-    public function getVote($_vote){
+    public function setVote($_vote){
       if(is_numeric($_vote)){
         $this -> vote = $_vote;
       }else{
         $this -> vote = "Is not a Number";
       }
     }
-    public function setVote(){
+    public function getVote(){
       echo "<li>" . $this -> vote . "</li>";
     }
-    public function getGenre(...$_genres){
-      $this -> genres = $_genres;
+    public function setArray($_type, ...$_elements){
+      $this -> $_type = $_elements;
     }
-    public function setGenre(){
-      foreach($this -> genres as $genre){
-        echo "<li>" . $genre . "</li>";
-      }
-    }
-    public function getCast(...$actor){
-      $this -> cast = $actor;
-    }
-    public function setCast(){
-      foreach($this -> cast as $person){
-        echo "<li>" . $person . "</li>";
+    public function get($_type, $_element){
+      foreach($this -> $_type as $_element){
+        echo "<li>" . $_element . "</li>";
       }
     }
   }
@@ -46,16 +38,16 @@
     echo "<li>" . $avengers -> filmProductionCompany . "</li>";
     echo "<li>" . $avengers -> language = "En" . "</li>";
     echo "<li>Genres:</li>";
-    $avengers -> getGenre("Action", "SuperHero", "Science Fiction", "Adventure", "Fantasy");
+    $avengers -> setArray("genres","Action", "SuperHero", "Science Fiction", "Adventure", "Fantasy");
       echo "<ul>";
-      $avengers -> setGenre();
+      $avengers -> get("genres", "gerne");
       echo "</ul>";
-    $avengers -> getVote(8);
-    $avengers -> setVote();
+    $avengers -> setVote(8);
+    $avengers -> getVote();
     echo "<li>Cast:</li>";
-    $avengers -> getCast("Robert Downey Jr.","Tom Holland","Chris Evans","Scarlett Johansson");
+    $avengers -> setArray("cast","Robert Downey Jr.","Tom Holland","Chris Evans","Scarlett Johansson");
       echo "<ul>";
-      $avengers -> setCast();
+      $avengers -> get("cast", "persone");
       echo "</ul>";
   echo "</ul>";
 
@@ -67,16 +59,16 @@
     echo "<li>" . $batman -> filmProductionCompany . "</li>";
     echo "<li>" . $batman -> language = "En" . "</li>";
     echo "<li>Genres:</li>";
-    $avengers -> getGenre("Action", "Drama", "SuperHero", "Adventure", "Crime Film", "Mystery");
+    $batman -> setArray("genres","Action", "Drama", "SuperHero", "Adventure", "Crime Film", "Mystery");
       echo "<ul>";
-      $avengers -> setGenre();
+      $batman -> get("genres", "gerne");
       echo "</ul>";
-    $batman -> getVote(7);
-    $batman -> setVote();
+    $batman -> setVote(7);
+    $batman -> getVote();
     echo "<li>Cast</li>";
-    $batman -> getCast("Robert Pattinson","Zoë Kravitz","Paul Dano","Colin Farrell");
+    $batman -> setArray("cast","Robert Pattinson","Zoë Kravitz","Paul Dano","Colin Farrell");
       echo "<ul>";
-      $batman -> setCast();
+      $batman -> get("cast", "persone");
       echo "</ul>";
   echo "</ul>";
 
